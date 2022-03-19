@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:tiktok/constance.dart';
 import 'package:tiktok/view/screens/auth/text_input_field.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({Key? key}) : super(key: key);
+class SignupScreen extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _userController = TextEditingController();
+
+  SignupScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,18 +19,51 @@ class LoginScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "TikTok clodfne",
+                "TikTok clone",
                 style: TextStyle(
                     fontSize: 35,
                     color: buttonColor,
                     fontWeight: FontWeight.w900),
               ),
               const Text(
-                "Login",
+                "Register",
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
               ),
               const SizedBox(
-                height: 25,
+                height: 15,
+              ),
+              Stack(
+                children: [
+                  const CircleAvatar(
+                    radius: 64,
+                    backgroundImage: NetworkImage(
+                        'https://www.nicepng.com/png/detail/136-1366211_group-of-10-guys-login-user-icon-png.png'),
+                    backgroundColor: Colors.black,
+                  ),
+                  Positioned(
+                    bottom: -10,
+                    right: 0,
+                    child: IconButton(
+                        onPressed: () {
+                          print("pick img");
+                        },
+                        icon: Icon(Icons.add_a_photo)),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                child: TextInputField(
+                    controller: _userController,
+                    labelText: 'Username',
+                    icon: Icons.supervised_user_circle_sharp),
+              ),
+              const SizedBox(
+                height: 15,
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
@@ -40,7 +75,7 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 25,
+                height: 15,
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
@@ -52,7 +87,7 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 30,
+                height: 20,
               ),
               Container(
                 width: MediaQuery.of(context).size.width - 40,
@@ -63,7 +98,7 @@ class LoginScreen extends StatelessWidget {
                 child: Center(
                     child: InkWell(
                         onTap: () {
-                          print("login user");
+                          print("Register");
                         },
                         child: const Text(
                           "Login",
