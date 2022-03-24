@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:tiktok/constance.dart';
+import 'package:tiktok/view/screens/auth/homescreen.dart';
 import 'package:tiktok/view/screens/auth/text_input_field.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -49,6 +51,7 @@ class LoginScreen extends StatelessWidget {
                   controller: _passwordController,
                   labelText: 'Password',
                   icon: Icons.lock,
+                  isObscure: true,
                 ),
               ),
               const SizedBox(
@@ -63,6 +66,8 @@ class LoginScreen extends StatelessWidget {
                 child: Center(
                     child: InkWell(
                         onTap: () {
+                          Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => HomeScreen()));
                           print("login user");
                         },
                         child: const Text(

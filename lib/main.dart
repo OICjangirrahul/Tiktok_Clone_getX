@@ -4,8 +4,10 @@ import 'package:get/get.dart';
 
 import 'package:tiktok/constance.dart';
 import 'package:tiktok/controllers/auth_controller.dart';
+
+
 import 'package:tiktok/view/screens/auth/login_screen.dart';
-import 'package:tiktok/view/screens/auth/signup_screen.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor,
       ),
-      home: SignupScreen(),
+      home: LoginScreen(),
     );
   }
 }

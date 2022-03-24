@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok/constance.dart';
+
 import 'package:tiktok/view/screens/auth/text_input_field.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -11,6 +12,7 @@ class SignupScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: Center(
         child: Container(
@@ -44,10 +46,8 @@ class SignupScreen extends StatelessWidget {
                     bottom: -10,
                     right: 0,
                     child: IconButton(
-                        onPressed: () {
-                          print("pick img");
-                        },
-                        icon: Icon(Icons.add_a_photo)),
+                        onPressed: () =>authController.pickImage(),
+                        icon: const Icon(Icons.add_a_photo)),
                   ),
                 ],
               ),
@@ -84,6 +84,7 @@ class SignupScreen extends StatelessWidget {
                   controller: _passwordController,
                   labelText: 'Password',
                   icon: Icons.lock,
+                  isObscure: true,
                 ),
               ),
               const SizedBox(
@@ -97,9 +98,7 @@ class SignupScreen extends StatelessWidget {
                     borderRadius: const BorderRadius.all(Radius.circular(5))),
                 child: Center(
                     child: InkWell(
-                        onTap: () {
-                          print("Register");
-                        },
+                        onTap: () =>authController.registerUser(_userController.text, _emailController.text, _passwordController.text,authController.profilephoto ),
                         child: const Text(
                           "Login",
                           style: TextStyle(
